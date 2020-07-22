@@ -16,7 +16,8 @@ Toolkit.run(async tools => {
 
   const commitMessage = 'version bump to'
   const isVersionBump = messages.map(message => message.toLowerCase().includes(commitMessage)).includes(true)
-  if (isVersionBump) {
+  const is_ci_skip = messages.map(message => message.toLowerCase().includes('ci skip')).includes(true)
+  if (isVersionBump || is_ci_skip) {
     tools.exit.success('No action necessary!')
     return
   }
