@@ -22,7 +22,7 @@ Toolkit.run(async tools => {
     return
   }
 
-  let version = 'patch'
+  let version = 'prerelease'
   if (messages.map(message => message.includes('BREAKING CHANGE') || message.includes('major')).includes(true)) {
     version = 'major'
   } else if (messages.map(
